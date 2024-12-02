@@ -1,0 +1,277 @@
+/* General Container Styling */
+.container {
+  max-width: 1200px;
+  padding: 16px;
+  display: flex;
+  margin: 50px auto 0 auto;
+  justify-content: space-around;
+  font-family: Arial, sans-serif;
+}
+
+h1,
+h2 {
+  font-weight: bold;
+  color: #333;
+}
+
+h1 {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: #d9534f;
+}
+
+h1:hover {
+  color: #007bff;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+/* Popup Container */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(252, 250, 250);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Form Container */
+.form-container {
+  position: relative;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #d9534f;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #333;
+}
+
+input,
+select {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Save Address Button */
+.save-address {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 70%;
+}
+
+.save-address:hover {
+  background-color: #0056b3;
+}
+
+/* Saved Addresses Section */
+.saved-list {
+  width: 900px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Address Card Styling */
+.address-card,
+.address-card-horizontal {
+  position: relative;
+  max-width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.address-name1 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 20px;
+  color: #555;
+}
+
+.address-details1 {
+  margin-top: 4px;
+  font-size: 18px;
+  color: #666;
+}
+
+.address-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.address-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.address-card-horizontal label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.address-card-horizontal label:hover {
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Radio Button Styling */
+.radio-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.radio-input:checked + .radio-label {
+  background-color: #e6f7ff;
+}
+
+/* Toggle Button Styling */
+.toggle-button {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .address-card,
+  .address-card-horizontal {
+    padding: 12px;
+  }
+
+  .address-name {
+    font-size: 0.9rem;
+  }
+
+  .address-details {
+    font-size: 0.85rem;
+  }
+
+  .address-card-horizontal label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .address-title {
+    font-size: 0.9rem;
+  }
+
+  .toggle-button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .toggle-button {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .address-name {
+    font-size: 0.85rem;
+  }
+
+  .address-details {
+    font-size: 0.8rem;
+  }
+}
