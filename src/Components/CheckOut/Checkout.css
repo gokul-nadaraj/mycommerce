@@ -8,21 +8,15 @@
   font-family: Arial, sans-serif;
 }
 
-h1,
-h2 {
-  font-weight: bold;
-  color: #333;
-}
-
-h1 {
-  font-size: 1.5rem;
+.header {
+  font-size: 1rem;
   cursor: pointer;
   margin-bottom: 16px;
   color: #d9534f;
 }
 
 h1:hover {
-  color: #007bff;
+  color: #be400f;
 }
 
 h2 {
@@ -112,7 +106,7 @@ select {
   font-size: 16px;
   cursor: pointer;
   display: block;
-  width: 70%;
+  width: 100%;
 }
 
 .save-address:hover {
@@ -121,8 +115,8 @@ select {
 
 /* Saved Addresses Section */
 .saved-list {
-  width: 900px;
-  padding: 15px;
+  width: 800px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
@@ -134,27 +128,32 @@ select {
   max-width: 700px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 16px;
+  padding: 8px;
   margin-bottom: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .address-header {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  font-family: "Poppins", serif;
+  position: relative;
 }
 
 .address-name1 {
   font-weight: bold;
-  margin: 0;
-  font-size: 20px;
+  font-family: "Poppins", serif;
+  margin-left: 30px;
+  letter-spacing: 0.5px;
+  font-size: 15px;
   color: #555;
 }
 
 .address-details1 {
-  margin-top: 4px;
-  font-size: 18px;
+  margin-top: -10px;
+  font-family: "Poppins", serif;
+  letter-spacing: 0.5px;
+  margin-left: 30px;
+  font-size: 14px;
   color: #666;
 }
 
@@ -164,11 +163,55 @@ select {
   margin-left: 8px;
 }
 
+.radio-input {
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  top: 15px;
+}
+.radio-input1{
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  top: 11px;
+}
+
+
+
+
 .address-title {
   font-size: 1rem;
+  margin-left: 20px;
+  margin-bottom: 20px;
   font-weight: bold;
   color: #333;
 }
+
+
+.address-details {
+  margin-top: -10px;
+  font-family: "Poppins", serif;
+  letter-spacing: 0.5px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.use{
+  margin-top: 12px;
+  padding: 8px 16px;
+  margin-left: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #070a08;
+  background-color: rgba(179, 47, 47, 0.733);
+  border: none;
+  /* outline: none; */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
 
 .address-card-horizontal label {
   display: flex;
@@ -178,9 +221,7 @@ select {
 }
 
 .address-card-horizontal label:hover {
-  background-color: #f0f8ff;
   border-radius: 8px;
-  padding: 8px;
 }
 
 /* Radio Button Styling */
@@ -191,98 +232,161 @@ select {
   cursor: pointer;
 }
 
-.radio-input:checked + .radio-label {
-  background-color: #e6f7ff;
-}
-
-/* Payment button Design */
-
-.payment-container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 400px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.input-name {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.input-name input{
-  margin-right: 15px;
-}
-
-.radio{
-width: 20px;
-height: 20px;
-}
-.razorpay{
-
-  font-size: 20px;
-}
-
-
-.pay-btn {
-  width: 40%;
-}
-
-.pay-button {
-  /* width: 100%; */
-  padding: 10px 20px;
-  background-color: #ccc;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
-  cursor: not-allowed;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.pay-button.enabled {
-  background-color: #28a745;
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
-.pay-button:disabled {
-  opacity: 0.6;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 /* Toggle Button Styling */
-.toggle-button {
+.toggle {
   position: absolute;
   top: 0;
   right: 10px;
   margin-top: 12px;
   padding: 8px 16px;
   font-size: 0.9rem;
-  color: #fff;
-  background-color: #007bff;
+  font-weight: bold;
+  color: #db4646;
+  background-color: white;
   border: none;
+  outline: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.toggle-button:hover {
-  background-color: #0056b3;
+.toggle:hover {
+  background-color:white;
+  text-decoration: underline;
 }
+
+.edit-button{
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #db4646;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+/*  Price Details Started */
+
+.price-details-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  width: 600px;
+  margin-left: 30px;
+  margin-top: 20px;
+  height: auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.price-details-container h2 {
+  font-size: 16px;
+  /* margin-bottom: 20px; */
+  margin-bottom: 10px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.price-details-container .total-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+  color: #555555;
+}
+
+.price-details-container .total-details1 {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+}
+
+
+
+.price-details-container .total-details1 .amount {
+  margin:1px;
+  margin-top: 10px;
+  font-size: 16px;
+
+}
+
+.price-details-container .total-details1 span {
+  font-weight: bold;
+  color: #000000;
+}
+
+
+.price-details-container .total-details1:last-child span {
+  color: #e63946;
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .price-details-container {
+    padding: 14px;
+    max-width: 90%;
+  }
+
+  .price-details-container h2 {
+    font-size: 18px;
+  }
+
+  .price-details-container .total-details {
+    font-size: 14px;
+  }
+
+  .price-details-container .total-details:last-child span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .price-details-container {
+    padding: 12px;
+    max-width: 95%;
+  }
+
+  .price-details-container h2 {
+    font-size: 16px;
+  }
+
+  .price-details-container .total-details {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 13px;
+  }
+
+  .price-details-container .total-details p {
+    margin-bottom: 4px;
+  }
+
+  .price-details-container .total-details span {
+    align-self: flex-end;
+  }
+
+  .price-details-container .total-details:last-child span {
+    font-size: 15px;
+  }
+}
+
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
