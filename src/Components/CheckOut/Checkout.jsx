@@ -319,7 +319,7 @@ const handleSaveAddress = (address) => {
  {savedAddresses.map((address, index) => (
    <div key={index} className="address-card-horizontal">
      <label>
-       <input
+       <input 
          type="radio"
          checked={
            selectedAddress &&
@@ -497,12 +497,13 @@ const handleSaveAddress = (address) => {
      <div className="payment-container">
      <div className="input-name">
        <input
+       className="radio"
          type="radio"
          id="razorpay"
          name="payment"
          onChange={handleRadioChange}
        />
-       <label htmlFor="razorpay">Razorpay</label>
+       <label htmlFor="razorpay" className="razorpay">Razorpay</label>
      </div>
      <div className="pay-btn">
        <button
