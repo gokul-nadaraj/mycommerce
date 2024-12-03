@@ -1,5 +1,5 @@
 import { Link,} from "react-router-dom";
-import { useCart } from "../CartContext"; // Custom hook to manage cart state
+import { useCart } from "../Cartcontext/CartContext"; // Custom hook to manage cart state
 import "./Cart.css";
 
 const Cart = () => {
@@ -121,8 +121,8 @@ const Cart = () => {
           <h3>Check Service Area</h3>
           <p>Zip/Postal Code</p>
           <div>
-            <input type="text" placeholder="Enter Zip/Postal Code" />
-            <button>Check</button>
+            <input type="text" placeholder="Enter Zip/Postal Code"  className="area-input"/>
+            <button className="check">Check</button>
           </div>
           <p>Note - If your pin code is non-serviceable, we will send it via Indian Speed Post. Delivery may take longer.</p>
         </div>

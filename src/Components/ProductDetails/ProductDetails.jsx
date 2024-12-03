@@ -5,7 +5,7 @@ import products from "../../products.json";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './ProductDetails.css';
-import { useCart } from "../CartContext"; // Import useCart hook
+import { useCart } from "../Cartcontext/CartContext"; // Import useCart hook
 
 const ProductDetails = () => {
   const { id } = useParams();

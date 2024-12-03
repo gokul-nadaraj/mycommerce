@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../CartContext";
-import { auth, db } from "../Firebase/firebase";
+import { useCart } from "../Cartcontext/CartContext";
+import { auth, db } from "../Firebase/Firebase";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import "./Checkout.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,7 +13,6 @@ const Checkout = () => {
   const { cart, setCart } = useCart();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -103,10 +102,10 @@ const [formData, setFormData] = useState({
         updatedAddresses = [address];
         await setDoc(userRef, { addresses: updatedAddresses });
       }
+      const newAddress = { id: Date.now(), ...address }; // Create a new address with a unique ID
+      setSavedAddresses((prevAddresses) => [...prevAddresses, newAddress]);
+      alert("Address added successfully!");
   
-      // Update local state
-      setSavedAddresses(updatedAddresses);
-      alert("Address saved successfully!");
     } catch (error) {
       console.error("Error saving address: ", error);
       alert("Failed to save address.");
@@ -148,31 +147,38 @@ useEffect(() => {
 
   const handleEditButtonClick = (address) => {
     setFormMode("edit");
-    setCurrentEditAddress(address); 
-    setIsPopupVisible(true);
-  }
+    setCurrentEditAddress(address);
+    setIsPopupVisible(true);          
+  };
 
-  const handleSaveAddress = (address) => {
-    const newAddress = {
-      id: formMode === "edit" ? currentEditAddress.id : Date.now(),
-      ...address,
+
+  const handleUpdateSelectedAddress = (address) => {
+    const updatedAddress = {
+      ...currentEditAddress, 
+      ...address, 
     };
-  
-    if (formMode === "add") {
-      setSavedAddresses((prevAddresses) => [...prevAddresses, newAddress]);
-    } else if (formMode === "edit") {
-      setSavedAddresses((prevAddresses) =>
-        prevAddresses.map((addr) =>
-          addr.id === currentEditAddress.id ? newAddress : addr
-        )
-      );
-    }
-  
-    setIsPopupVisible(false); // Close the popup
+    setSelectedAddress(updatedAddress); 
+    setIsPopupVisible(false); 
   };
   
 
-
+  const handleDeleteAddress = (index) => {
+    // Get the address to delete before updating the list
+    const addressToDelete = savedAddresses[index];
+  
+    // Filter out the deleted address from the savedAddresses list
+    const updatedAddresses = savedAddresses.filter((_, i) => i !== index);
+  
+    // Update the saved addresses state
+    setSavedAddresses(updatedAddresses);
+  
+    // If the deleted address was the selected one, clear the selected address
+    if (selectedAddress && selectedAddress.id === addressToDelete.id) {
+      setSelectedAddress(null);
+    }
+  };
+  
+  
 
 
 
@@ -181,7 +187,6 @@ useEffect(() => {
 <div className="container">
 
 <div className="checkout-container">
-  {/* Saved Addresses Section */}
 
   <h1  onClick={() => setShowAllAddresses(!showAllAddresses)} className="header">1. Delivery Address</h1>
 {showAddress && (
@@ -231,10 +236,9 @@ useEffect(() => {
         <label>
           <input
             type="radio"
-            name="address" // Grouping the radio buttons
+            name="address" 
             className="radio-input1"
-           // Check if this address is selected
-            onChange={() => setSelectedAddress(address)} // Update selectedAddress when clicked
+            onChange={() => setSelectedAddress(address)} 
           />
           <div className="address-content">
             <span className="address-title">
@@ -245,6 +249,12 @@ useEffect(() => {
               {address.country}, {address.pincode}
             </span>
           </div>
+          <button
+          className="delete-button"
+          onClick={() => handleDeleteAddress(index)} // Trigger the delete function
+        >
+          Delete
+        </button>
         </label>
       </div>
     ))}
@@ -264,32 +274,31 @@ useEffect(() => {
 
 
 
-    {/* Add new address link */}
-  
 
     {/* Popup form for adding new address */}
     {isPopupVisible && (
   <div className="popup-container">
     <div className="form-container">
       <div className="form-header">
-        <h2>{formMode === "add" ? "Add New Address" : "Edit Address"}</h2>
+        <h2 className="added">{formMode === "add" ? "Add New Address" : "Edit Address"}</h2>
         <button className="close-button" onClick={() => setIsPopupVisible(false)}>×</button>
       </div>
  
       <form
-   onSubmit={async (e) => {
+  onSubmit={(e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const address = Object.fromEntries(formData);
 
-    // Save address locally
-    handleSaveAddress(address);
+    if (formMode === "add") {
+      handleSubmitAddress(address); // For adding a new address
+    } else if (formMode === "edit") {
+      handleUpdateSelectedAddress(address); // For editing without saving to savedAddresses
+    }
+    resetForm(); // Reset form fields
 
-    // Save address to Firestore
-    await handleSubmitAddress(address);
 
-    // Close popup and reset form
-    resetForm();
+
   }}
 >
   <div className="form-grid">
@@ -364,19 +373,20 @@ useEffect(() => {
 </form>
 
 
+
     </div>
   </div>
 )}
   </div>
 )}
       
-      <Order/>  
+
+<Order/>  
+
 
 <Payment/>
 
 
-
-      {/* Price Details Section */}   
 
   </div>
   <div className="price-details-container">

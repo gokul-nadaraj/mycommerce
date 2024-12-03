@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import axios from "axios";
 import Razorpay from "razorpay"; // Ensure Razorpay is properly imported or included via script
-import { db } from "../Firebase/firebase"; // Adjust this path as per your project structure
+import { db } from "../Firebase/Firebase"; // Adjust this path as per your project structure
 import './Payment.css'
 
 

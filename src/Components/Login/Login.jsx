@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { auth } from "../Firebase/firebase";
+import { auth,setDoc } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-import { useCart } from "../CartContext";
+import { useCart } from "../Cartcontext/CartContext";
 import './Login.css'
 
 
@@ -45,12 +45,14 @@ const Auth = () => {
 
       alert(`Signup successful for ${username}! Please log in to continue.`);
       console.log('user',user)
-      navigate("/cart", { state: { email, cart, username } });
+      navigate("/cart", { state: { email, cart, username} });
     } catch (error) {
       console.error("Error during signup:", error);
       setError(error.message);
     }
   };
+
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -106,7 +108,7 @@ const Auth = () => {
             <div>
               <label>Phone:</label>
               <input
-                type="tel"
+                type="number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required

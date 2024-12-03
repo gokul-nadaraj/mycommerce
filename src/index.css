@@ -5,13 +5,13 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: 'poppins', sans-serif;
+    font-family: "Poppins", serif;
   }
   
   *,
   *::before,
   *::after {
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family: "Poppins", serif;
   }
   

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { auth } from "../Firebase/firebase";
+import { auth } from "../Firebase/Firebase";
 import "./Success.css";
 
 const Success = () => {

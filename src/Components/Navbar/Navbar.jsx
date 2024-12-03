@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from "../CartContext";
+import { useCart } from "../CartContext/Cartcontext/";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import { auth } from "../Firebase/firebase";
+import { auth } from "../Firebase/Firebase";
 import { signOut } from "firebase/auth";
 import { SlBag } from "react-icons/sl";
-import { PiUserCircleThin } from "react-icons/pi";
+import { LuUser } from "react-icons/lu";
+import { FaAngleDown } from "react-icons/fa6";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope as faEnvelopeRegular } from '@fortawesome/free-regular-svg-icons'; // Regular email icon
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
 // import { faShoppingCart, faSignInAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css'
 
@@ -21,8 +25,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     signOut(auth).then(() => {
       navigate('/');
-      localStorage.removeItem('cart'); // Clear cart in localStorage (if used)
-      // Sign-out successful.
+      localStorage.removeItem('cart'); 
+
       alert('Signed out successfully');
       setShowLogout(false); 
       
@@ -47,13 +51,22 @@ const Navbar = () => {
   </Link>
 </div>
 
-<div className="list-container">
-  <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>Contact</li>
-        </ul>
-      </div>
+<div className='name-container'>
+<p>
+
+<FontAwesomeIcon icon={faWhatsapp}  className='fa'/>+
+<a>8769878332</a>
+</p>
+<p>
+<FontAwesomeIcon icon={faEnvelopeRegular}  className='fa'/>
+<a href="mailto:yesuraj88@gmail.com">yesuraj88@gmail.com</a>
+</p>
+
+</div>
+
+
+
+
  
 
   {user ? (
@@ -63,23 +76,21 @@ const Navbar = () => {
         <SlBag className='icon' />
         <p className='quan'>{cartIconQuantity}</p>
       </Link>
+      <div className="user-menu">
+  <button className="user-name">
+    <p>
+      Hi {capitalizeFirstLetter(user.displayName || user.email || "there")}
+      <span className="down"><FaAngleDown /></span>
+    </p>
+  </button>
+  <div className="Allorders">
+    <p onClick={() => navigate("/Youraccounts")}>Your Accounts</p>
+    <p onClick={() => navigate("/order-history")}>Your Orders</p>
+    <p onClick={handleLogout}>LogOut</p>
+  </div>
+</div>
 
-      <div className="navbar-user" onClick={() => setShowLogout(!showLogout)}>
-        <span className="user-name">
-          <p>{(user.displayName ? user.displayName[0].toUpperCase() : user.email[0].toUpperCase()) || "U"}</p>
-        </span>
 
-        {showLogout && (
-          <div >
-            <button className="navbar-btn" onClick={() => navigate("/order-history")}>
-              Your Orders
-            </button>
-            <button className="navbar-btn" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
-        )}
-      </div>
     </>
   ) : (
     <>
@@ -90,10 +101,19 @@ const Navbar = () => {
       </Link>
 
       <Link to="/login" className="navbar-link1">
-      <PiUserCircleThin  className='img '/>
-      </Link>
+  <button className="login-btn">
+    <LuUser />
+    Login/SignUp
+  </button>
+</Link>
     </>
   )}
+ <Link to='pincode'>
+ 
+ <div>
+    pincode
+  </div>
+ </Link>
 </nav>
 
 

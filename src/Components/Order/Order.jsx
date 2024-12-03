@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useCart } from "../CartContext";
+import { useCart } from "../Cartcontext/CartContext";
 import './Order.css'
 const Order = () => {
     const [showOrderSummary, setShowOrderSummary] = useState(false);

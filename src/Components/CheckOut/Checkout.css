@@ -145,16 +145,15 @@ select {
   margin-left: 30px;
   letter-spacing: 0.5px;
   font-size: 15px;
-  color: #555;
 }
 
 .address-details1 {
   margin-top: -10px;
+font-weight: 400;
   font-family: "Poppins", serif;
   letter-spacing: 0.5px;
   margin-left: 30px;
   font-size: 14px;
-  color: #666;
 }
 
 .address-content {
@@ -173,7 +172,7 @@ select {
   width: 20px;
   height: 15px;
   position: absolute;
-  top: 11px;
+  top: 14px;
 }
 
 
@@ -184,17 +183,17 @@ select {
   margin-left: 20px;
   margin-bottom: 20px;
   font-weight: bold;
-  color: #333;
 }
 
 
 .address-details {
   margin-top: -10px;
+  font-weight: 400;
   font-family: "Poppins", serif;
   letter-spacing: 0.5px;
   margin-left: 20px;
   font-size: 14px;
-  color: #666;
+
 }
 
 .use{
@@ -202,12 +201,11 @@ select {
   padding: 8px 16px;
   margin-left: 20px;
   font-size: 0.9rem;
-  font-weight: bold;
   color: #070a08;
-  background-color: rgba(179, 47, 47, 0.733);
+  background-color: rgba(84, 179, 47, 0.733);
   border: none;
   /* outline: none; */
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -387,20 +385,85 @@ select {
 
 
 
-
-/* Responsive Design */
+/* Mobile Styles */
 @media (max-width: 768px) {
   .container {
-    padding: 12px;
     flex-direction: column;
+    padding: 8px;
+    margin: 20px auto;
+  }
+  .popup-container {
+    padding: 10px; /* Add some padding to the popup */
   }
 
-  h1 {
-    font-size: 1.3rem;
+  .form-container {
+    padding: 15px; 
+    width: 90%; 
+    max-width: none; 
+
   }
 
-  h2 {
-    font-size: 1rem;
+  .form-header {
+    flex-direction: column; /* Stack header items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .close-button {
+    font-size: 18px; /* Smaller close button font */
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* Change to single column */
+    gap: 10px; /* Reduced gap */
+  }
+
+  label {
+    font-size: 14px; /* Smaller font size for labels */
+  }
+
+  input,
+  select {
+    font-size: 12px; /* Smaller font size for inputs */
+    padding: 8px; /* Reduced padding for inputs */
+  }
+
+  .save-address {
+    padding: 12px; /* Adjust padding */
+    font-size: 14px; /* Smaller button font size */
+  }
+
+
+
+
+  .header {
+    font-size: 0.9rem;
+  }
+
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  .popup-container {
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .save-address {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .saved-list {
+    width: 100%;
+    padding: 5px;
   }
 
   .address-card,
@@ -408,44 +471,185 @@ select {
     padding: 12px;
   }
 
-  .address-name {
-    font-size: 0.9rem;
+  .address-name1,
+  .address-details1,
+  .address-title,
+  .address-details {
+    font-size: 14px; 
   }
 
-  .address-details {
-    font-size: 0.85rem;
+  .use {
+    font-size: 0.8rem;
+  }
+
+  .toggle, .edit-button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 
   .address-card-horizontal label {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .address-title {
-    font-size: 0.9rem;
-  }
-
-  .toggle-button {
-    font-size: 0.8rem;
-    padding: 6px 12px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  h1 {
+  .popup-container {
+    padding: 10px;
+    background-color: rgba(252, 250, 250, 0.95);
+  }
+  .added{
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .form-container {
+    max-width: 100%; 
+    flex: 3;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-header {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .close-button {
+    font-size: 22px;
+  }
+
+  .form-grid {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+
+  label {
+    font-size: 14px;
+    display: block;
+
+  input,
+  select {
+    font-size: 12px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; 
+  }
+
+  .save-address {
+    padding: 12px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .save-address:hover {
+    background-color: #0056b3;
+  }
+
+  h1, h2 {
     font-size: 1.2rem;
   }
+}
 
-  .toggle-button {
-    font-size: 0.7rem;
-    padding: 4px 8px;
+}
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 16px;
+    margin: 30px auto;
+  }
+  .popup-container {
+    padding: 20px; 
   }
 
-  .address-name {
-    font-size: 0.85rem;
+  .form-container {
+    padding: 20px; 
+    width: 80%; 
+    max-width: none; 
+    margin: 30px auto;
   }
 
+  .form-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .close-button {
+    font-size: 20px; 
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 13px; 
+  }
+  label {
+    font-size: 15px; /* Slightly larger font size for labels */
+  }
+
+  input,
+  select {
+    font-size: 14px; /* Keep input font size */
+    padding: 10px; /* Maintain padding for inputs */
+  }
+
+  .save-address {
+    padding: 10px 20px; /* Keep button padding */
+    font-size: 16px; /* Maintain button font size */
+  }
+  
+  .header {
+    font-size: 1rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem; /* Adjust font size for tablet */
+  }
+
+  .form-container {
+    padding: 20px;
+    width: 80%;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  }
+
+  .saved-list {
+    width: 100%;
+  }
+
+  .address-card,
+  .address-card-horizontal {
+    padding: 15px;
+  }
+
+  .address-name1,
+  .address-details1,
+  .address-title,
   .address-details {
-    font-size: 0.8rem;
+    font-size: 15px; /* Slightly larger font size */
   }
+
+  .use {
+    font-size: 0.9rem;
+  }
+.toggle{
+  position: relative;
+  right: -20px;
+
+}
+.edit-button{
+  position: relative;
+  right: -100px;
+  top: 0px;
+}
+
 }
