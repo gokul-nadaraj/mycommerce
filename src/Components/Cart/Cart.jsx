@@ -1,5 +1,5 @@
 import { Link,} from "react-router-dom";
-import { useCart } from "../Cartcontext/CartContext"; // Custom hook to manage cart state
+import { useCart } from "../CartContext"; // Custom hook to manage cart state
 import "./Cart.css";
 
 const Cart = () => {

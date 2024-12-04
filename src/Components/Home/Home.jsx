@@ -1,6 +1,6 @@
 import React from "react";
 import products from "../../products.json";
-import { useCart } from "../Cartcontext/CartContext";
+import { useCart } from "../CartContext";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 

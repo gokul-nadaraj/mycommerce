@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from "../CartContext/Cartcontext/";
+import { useCart } from "../CartContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -84,7 +84,8 @@ const Navbar = () => {
     </p>
   </button>
   <div className="Allorders">
-    <p onClick={() => navigate("/Youraccounts")}>Your Accounts</p>
+  <p onClick={() => navigate("/Youraccounts")}>Your Accounts</p>
+
     <p onClick={() => navigate("/order-history")}>Your Orders</p>
     <p onClick={handleLogout}>LogOut</p>
   </div>
@@ -106,14 +107,12 @@ const Navbar = () => {
     Login/SignUp
   </button>
 </Link>
+
+<Link to='pin'>
+<p>Pincode</p>
+</Link>
     </>
   )}
- <Link to='pincode'>
- 
- <div>
-    pincode
-  </div>
- </Link>
 </nav>
 
 

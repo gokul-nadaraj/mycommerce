@@ -1,0 +1,75 @@
+/* Accounts.css */
+
+/* Main container */
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 50px;
+ width: 100vw;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds spacing between contact info and image */
+}
+
+/* Contact information */
+.contact-info {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info .info p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.Password-container button {
+  margin: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.Password-container button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Main image container */
+.main-img {
+  text-align: center;
+  background-color: yellowgreen;
+  max-width: 500px;
+  max-height:500px ;
+}
+
+.main-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .main-img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}

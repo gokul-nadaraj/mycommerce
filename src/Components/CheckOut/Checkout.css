@@ -196,20 +196,41 @@ font-weight: 400;
 
 }
 
-.use{
-  margin-top: 12px;
-  padding: 8px 16px;
-  margin-left: 20px;
-  font-size: 0.9rem;
-  color: #070a08;
-  background-color: rgba(84, 179, 47, 0.733);
-  border: none;
-  /* outline: none; */
-  border-radius: 6px;
+
+
+/* CSS */
+.use {
+  background-color: hsla(106, 85%, 51%, 0.767);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 5px 20px;
+  position: relative;
+  top: 10px;
+  transition: all 250ms;
+  user-select: none;
+  vertical-align: baseline;
 }
 
+.use:hover,
+.use:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
 
+.use:hover {
+  transform: translateY(-1px);
+}
 
 .address-card-horizontal label {
   display: flex;
